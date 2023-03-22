@@ -16,7 +16,7 @@ Os nomes dos arquivos PHP não devem ser trocados (se você fizer isso, os teste
 No entanto, você pode criar outras funções que/se julgar necessário.
 Não é recomendado mudar o nome dos parâmetros, embora você possa fazer isso.
 
-Faça o ADO em grupos de 1 até 3 pessoas.
+Faça o ADO em grupos de 1 até 4 pessoas.
 
 ## Como executar os exercícios? Como saber se o que fiz está certo?
 
