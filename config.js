@@ -1,3 +1,3 @@
 function configuracaoDoAdo() {
-    return "http://localhost:8000/";
+    return "http://localhost/";
 }
