@@ -22,7 +22,7 @@ funcs => {
     const Pagina = funcs.Pagina;
     const Xoshiro128ssSeedRandom = funcs.Xoshiro128ssSeedRandom;
     const erroGravissimo = funcs.erroGravissimo;
-    const numeroMaximoDeAlunos = 3;
+    const numeroMaximoDeAlunos = 4;
     const random = Xoshiro128ssSeedRandom.std();
     let nomesOk = false;
     function testOk() { return nomesOk; }
