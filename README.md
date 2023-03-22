@@ -36,6 +36,7 @@ Não só isso, já te dará de cara uma caixa de mensagem de erro amarela com le
 O seu objetivo é editar esses arquivos PHP de forma a fazer todos os testes passarem.
 Você deverá alterar estes arquivos até conseguir a nota 10 (ou até desistir de fazê-lo, mas espero que não seja o caso).
 Faça EXATAMENTE o que o enunciado de cada exercício pede, nem mais e nem menos.
+Além disso, qualquer coisa que os seus arquivos PHP produzirem como resposta, terá o HTML submetido ao crivo de um validador.
 Se houver algum erro, os testes te dirão o que há de errado.
 
 ## E os demais arquivos?
