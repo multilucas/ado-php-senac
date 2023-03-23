@@ -8,9 +8,7 @@ Você deve mexer apenas no arquivo `ex1.php`, `ex2.php` e `nomes.js`.
 Há apenas 2 exercícios com códigos PHP a serem desenvolvidos.
 Vocês devem desenvolver o conteúdo dos arquivos PHP conforme a descrição que se encontra em cada um deles.
 
-Comece pelo `nomes.js` que fornece a lista com o nome dos alunos (exercício 0).
-Ele também fornece o caminho para os arquivos PHP e a porta. Altere isso, caso julgue necessário.
-Se você não conseguir fazer isso corretamente, sua nota será zero independente de todo o resto.
+Comece pelo `nomes.js` que fornece a lista com o nome dos alunos (exercício 0). Se você não conseguir fazer isso corretamente, sua nota será zero independente de todo o resto.
 
 Os nomes dos arquivos PHP não devem ser trocados (se você fizer isso, os testes não vão te perdoar).
 No entanto, você pode criar outras funções que/se julgar necessário.
