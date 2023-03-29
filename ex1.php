@@ -43,7 +43,16 @@ Dica:
 - As funções substr, strlen, in_array, isset e str_contains podem ser úteis.
 */
 ?>
+<?php 
+    $telefone = $_GET["telefone"];
+?>
 <!DOCTYPE html>
 <html>
-    <!-- Coloque o que precisar aqui. -->
+    <head>
+       <meta charset="utf-8">
+       <title>Exercicio 1 PHP</title> 
+    </head>
+    <body>
+       <p></p> 
+    </body>
 </html>
