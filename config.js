@@ -1,3 +1,3 @@
 function configuracaoDoAdo() {
-    return "http://localhost/";
+    return "http://localhost/ado-php-senac/";
 }

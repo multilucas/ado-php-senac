@@ -16,17 +16,17 @@ Crie uma página PHP com as seguintes características:
 - 7. Se o número de telefone não for bem-formado, coloque dentro do <body>, apenas uma tag <p> contendo o texto "Número inválido".
 
 Regras para um número de telefone recebido na query string ser considerado bem-formado:
-- 1. Deve ter 10 ou 11 dígitos. Qualquer coisa com menos de 10 ou mais que 11, não é bem formado.
-- 2. Deve ter somente caracteres numéricos (0-9). Qualquer coisa contendo outros caracteres, não é bem formada.
-- 3. O número do DDD deve ser válido (veja abaixo).
-- 4. Um número de telefone de 11 dígitos é um celular. Dessa forma, após o DDD, ele tem que começar com 9.
+- 1. Deve ter 10 ou 11 dígitos. Qualquer coisa com menos de 10 ou mais que 11, não é bem formado.(check)
+- 2. Deve ter somente caracteres numéricos (0-9). Qualquer coisa contendo outros caracteres, não é bem formada.(check)
+- 3. O número do DDD deve ser válido (veja abaixo).(check)
+- 4. Um número de telefone de 11 dígitos é um celular. Dessa forma, após o DDD, ele tem que começar com 9.(check)
 - 5. Nenhum número de celular pode começar com 90, pois esse é o prefixo para ligações à cobrar. Qualquer número assim é mal-formado.
-- 6. Um número de telefone de 10 dígitos é um telefone fixo. Dessa forma, após o DDD, ele tem que começar com um número de 2 a 8.
-- 7. Não existem números de telefone regulares que comecem com 0 ou 1. Todos esses são mal-formados.
+- 6. Um número de telefone de 10 dígitos é um telefone fixo. Dessa forma, após o DDD, ele tem que começar com um número de 2 a 8.(check)
+- 7. Não existem números de telefone regulares que comecem com 0 ou 1. Todos esses são mal-formados.(check)
      - Números de emergência ou de serviços (190, 193, 156, 180, 0800, 0900, 0300, etc) não contam e devem ser desconsiderados.
      - Números de fora do Brasil também devem ser desconsiderados.
-- 8. Se o número nem sequer existir na query string, então ele é mal-formado.
-- 9. Não haverão casos onde haja vários números de telefone na query string.
+- 8. Se o número nem sequer existir na query string, então ele é mal-formado.(check)
+- 9. Não haverão casos onde haja vários números de telefone na query string.(check)
 
 DDDs válidos, obtido de https://pt.wikipedia.org/wiki/Discagem_direta_à_distância:
     11, 12, 13, 14, 15, 16, 17, 18, 19, // SP
@@ -43,9 +43,6 @@ Dica:
 - As funções substr, strlen, in_array, isset e str_contains podem ser úteis.
 */
 ?>
-<?php 
-    $telefone = $_GET["telefone"];
-?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,6 +50,41 @@ Dica:
        <title>Exercicio 1 PHP</title> 
     </head>
     <body>
-       <p></p> 
+<?php 
+ //Telefone válido (xx) xxxxx-xxxx ou (xx) xxxx-xxxx.
+  $inputTelefone = $_GET["telefone"];
+  $telSemDdd = substr($telefone,2,strlen($telefone) - 2);
+  $dddSemTel = $inputTelefone[0].$inputTelefone[1];
+  $deuBom = false;
+  $deuMerda = false;
+  
+  $telFixoValido = "<p>($dddSemTel) substr($inputTelefone,2,5)-substr($inputTelefone,6,9)</p>";
+  $telCelValido ="<p>($dddSemTel) substr($inputTelefone,2,6)-substr($inputTelefone,7,10)</p>";
+
+  $dddsList = [ 11, 12, 13, 14, 15, 16, 17, 18, 19, // SP
+    21, 22, 24, 27, 28,                 // RJ e ES
+    31, 32, 33, 34, 35, 37, 38,         // MG
+    41, 42, 43, 44, 45, 46, 47, 48, 49, // PR e SC
+    51, 53, 54, 55,                     // RS
+    61, 62, 63, 64, 65, 66, 67, 68, 69, // DF, GO, TO, MT, MS, AC e RO
+    71, 73, 74, 75, 77, 79,             // BA e SE
+    81, 82, 83, 84, 85, 86, 87, 88, 89, // PE, AL, PB, RN, CE e PI
+    91, 92, 93, 94, 95, 96, 97, 98, 99  // PA, AM, RR, AP e MA
+  ];
+
+  //testes
+ if(isset($inputTelefone) && strlen($inputTelefone) >= 10 && strlen($inputTelefone) <= 11){
+  if(is_numeric($inputTelefone)){
+    if($inputTelefone[0] != 0 || $inputTelefone[0] != 1){
+      if(in_array($dddSemTel, $dddsList)){
+        if(strlen($inputTelefone) == 10 && $inputTelefone[2] >=2 || $inputTelefone[2] <= 8){
+          echo $telFixoValido;
+        }else if(strlen($inputTelefone) == 11 && $inputTelefone[2] === "9"){
+          echo $telCelValido;
+        }else echo "<p>Telefone inválido</p>";
+      }
+   }
+ }
+?> 
     </body>
 </html>
